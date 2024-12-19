@@ -5,6 +5,12 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
+
+
+app.get('/', (req, res) => {
+  res.send('Hello World');
+})
+
 app.get("/api/option-chain", async (req, res) => {
   const symbol = req.query.symbol || "NIFTY";
   const url = `https://www.nseindia.com/api/option-chain-indices?symbol=${symbol}`;
@@ -25,5 +31,5 @@ app.get("/api/option-chain", async (req, res) => {
   }
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
