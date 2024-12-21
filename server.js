@@ -7,6 +7,9 @@ const app = express();
 app.use(cors());
 
 
+console.log("Testing")
+
+
 
 app.get('/', (req, res) => {
   res.send('Hello World');
@@ -31,6 +34,8 @@ app.get("/api/option-chain", async (req, res) => {
     res.status(500).send("Error fetching data from NSE");
   }
 });
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
